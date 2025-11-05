@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mastermind"
+version = "0.1.0"
+description = "Mastermind game with a simple CLI"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Team Mastermind" }]
+dependencies = []  # keep Sprint 1 dependency-free
+
+[project.scripts]
+# register CLI entry point: `mastermind`
+mastermind = "mastermind.cli:main"
+
+[tool.pytest.ini_options]
+# -q = quiet; coverage is printed with missing lines
+addopts = "-q --cov=mastermind --cov-report=term-missing"
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+
+[tool.isort]
+profile = "black"
