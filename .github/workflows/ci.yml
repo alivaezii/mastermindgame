@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Miniconda
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          activate-environment: mastermind
+          environment-file: environment.yml
+          python-version: ${{ matrix.python-version }}
+          auto-activate-base: false
+
+      - name: Install package (editable) & pre-commit
+        shell: bash -l {0}
+        run: |
+          pip install -e .
+          pre-commit install
+
+      - name: Lint & Style
+        shell: bash -l {0}
+        run: |
+          black --check .
+          isort --check-only .
+          flake8 .
+
+      - name: Run tests with coverage
+        shell: bash -l {0}
+        run: |
+          pytest
