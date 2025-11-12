@@ -28,14 +28,18 @@ jobs:
           channels: conda-forge,defaults
           channel-priority: strict
 
+      - name: Install package (editable) & pre-commit
+        shell: bash -l {0}
+        run: |
+          pip install -e .
+          pre-commit install
+
       - name: Lint & Style
         shell: bash -l {0}
         run: |
-          black --check .
-          isort --check-only .
-          flake8 .
+          pre-commit run --all-files
 
       - name: Run tests with coverage
         shell: bash -l {0}
         run: |
-          pytest -q
+          pytest
