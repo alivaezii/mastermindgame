@@ -5,7 +5,8 @@ on:
     branches: [ main, develop ]
   pull_request:
     branches: [ main, develop ]
-  workflow_dispatch: 
+  workflow_dispatch:
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -28,18 +29,20 @@ jobs:
           channels: conda-forge,defaults
           channel-priority: strict
 
-      - name: Install package (editable) & pre-commit
+      - name: Install package
         shell: bash -l {0}
-        run: |
-          pip install -e .
-          pre-commit install
+        run: pip install -e .
 
-      - name: Lint & Style
+      - name: Auto-format (isort + black)
         shell: bash -l {0}
         run: |
-          pre-commit run --all-files
+          isort .
+          black .
+
+      - name: Lint (flake8)
+        shell: bash -l {0}
+        run: flake8 .
 
       - name: Run tests with coverage
         shell: bash -l {0}
-        run: |
-          pytest
+        run: pytest
