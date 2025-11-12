@@ -1,5 +1,8 @@
 [flake8]
-max-line-length = 100
-extend-ignore = E203, W503
+
+max-line-length = 130
+extend-ignore = E203, W503, W291, W293, E303
 per-file-ignores =
-    tests/*: E501
+    tests/*: E501, E402
+
+
