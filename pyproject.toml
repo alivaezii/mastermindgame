@@ -21,7 +21,7 @@ mastermind = "mastermind.cli:main"
 addopts = "-q --cov=mastermind --cov-report=term-missing"
 
 [tool.black]
-line-length = 88
+line-length = 130
 target-version = ["py310", "py311"]
 
 [tool.isort]
