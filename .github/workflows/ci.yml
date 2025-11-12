@@ -10,8 +10,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         python-version: ["3.10", "3.11"]
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -23,12 +25,8 @@ jobs:
           environment-file: environment.yml
           python-version: ${{ matrix.python-version }}
           auto-activate-base: false
-
-      - name: Install package (editable) & pre-commit
-        shell: bash -l {0}
-        run: |
-          pip install -e .
-          pre-commit install
+          channels: conda-forge,defaults
+          channel-priority: strict
 
       - name: Lint & Style
         shell: bash -l {0}
@@ -40,4 +38,4 @@ jobs:
       - name: Run tests with coverage
         shell: bash -l {0}
         run: |
-          pytest
+          pytest -q
