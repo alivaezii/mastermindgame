@@ -2,9 +2,8 @@ name: mastermind
 channels:
   - conda-forge
   - defaults
-channel_priority: strict
 dependencies:
-  - python              
+  - python         
   - pip
   - pre-commit
   - pytest
@@ -14,4 +13,3 @@ dependencies:
   - isort
   - pip:
       - -e .
-
