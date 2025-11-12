@@ -97,7 +97,7 @@ If all stages pass, the build turns ✅ green in GitHub Actions.
 
 ## 📝 License
 MIT License © 2025  
-Developed by **Ali Vaezi**
+Developed by **Hochschule Campus Wien**
 
 ---
 
