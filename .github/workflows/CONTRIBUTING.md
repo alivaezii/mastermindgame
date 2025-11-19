@@ -1,36 +1,29 @@
-Contributing to Mastermind Game
+cat <<EOF > CONTRIBUTING.md
+# Hey! Thanks for helping with Mastermind!
 
-Thank you for your interest in contributing! We follow a strict quality policy to ensure the project remains maintainable.
+We're super excited that you want to jump in and contribute! Just a heads-up: we like to keep our code clean and tidy so the project stays easy to manage for everyone.
 
-Development Workflow
+## Getting Started
 
-Fork and Clone: Fork the repo and clone it locally.
+1.  **Grab a copy**: Fork this repo and clone it to your local machine.
+2.  **Get set up**: Create a virtual environment and install the tools you'll need:
+    \`\`\`bash
+    pip install -e .[dev]
+    \`\`\`
+3.  **Keep it clean**:
+      - **Type Hints**: Please don't forget them! We use type hints for everything.
+      - **Formatting**: Let the robots handle the style. Just run \`black\` and \`isort\` before you commit.
+      - **Linting**: Make sure \`flake8\` is happy and doesn't throw any errors.
+4.  **Test, test, test**:
+      - Adding a cool new feature? Make sure to write a test for it!
+      - We aim high here—try to keep code coverage at **90%** or better.
+      - Give \`pytest\` a quick run before you push your changes.
 
-Environment: Create a virtual environment and install dependencies:
+## Ready to Merge?
 
-pip install -e .[dev]
+  - Send your Pull Request over to the \`develop\` branch.
+  - Wait for those green checkmarks from GitHub Actions (the CI pipeline).
+  - Let us know what you did! Write a clear description in your PR so we know what's up.
 
-
-Coding Standards:
-
-Type Hinting: All functions must have type hints.
-
-Formatting: Run black and isort before committing.
-
-Linting: Ensure flake8 passes with no errors.
-
-Testing:
-
-Write tests for new features.
-
-Maintain at least 90% code coverage.
-
-Run pytest before pushing.
-
-Pull Requests
-
-Open a PR to the develop branch.
-
-Ensure the CI pipeline (GitHub Actions) passes.
-
-Describe your changes clearly in the PR description.
+Happy coding! 🚀
+EOF
