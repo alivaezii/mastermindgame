@@ -61,7 +61,7 @@ def play(
         
         # Player 1 sets the secret
         print(f"\n{player1_name}, please enter the secret code.")
-        print(f"(It will not be displayed on screen)")
+        print("It will not be displayed on screen")
         
         while True:
             secret = getpass(f"Secret code ({length} characters from '{alphabet}'): ").strip()
@@ -180,3 +180,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
