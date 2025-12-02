@@ -1,0 +1,15 @@
+name: mastermind
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python         
+  - pip
+  - pre-commit
+  - pytest
+  - pytest-cov
+  - flake8
+  - black
+  - isort
+  - pip:
+      - -e .

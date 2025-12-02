@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mastermind"
+version = "0.1.0"
+description = "Mastermind game with a simple CLI"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Team Mastermind" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-cov", "flake8", "black", "isort", "pre-commit"]
+
+[project.scripts]
+mastermind = "mastermind.cli:main"
+
+[tool.pytest.ini_options]
+addopts = "-q --cov=mastermind --cov-report=term-missing"
+
+[tool.black]
+line-length = 130
+target-version = ["py310", "py311"]
+
+[tool.isort]
+profile = "black"
+
