@@ -25,7 +25,7 @@ def play(
     allow_duplicates: bool,
     mode: str = "pvc",
     max_attempts: int = 10,
-    seed: Optional[int] = None
+    seed: Optional[int] = None,
 ) -> None:
     """
     Run an interactive game loop in the terminal.
@@ -42,82 +42,109 @@ def play(
         random.seed(seed)
 
     rules = Rules(length=length, alphabet=alphabet, allow_duplicates=allow_duplicates)
-    
+
     print(f"🎮 Mastermind - {mode.upper()} Mode")
-    print(f"Rules: length={length}, alphabet={alphabet}, allow_duplicates={allow_duplicates}")
+    print(
+        f"Rules: length={length}, alphabet={alphabet}, "
+        f"allow_duplicates={allow_duplicates}"
+    )
     print(f"Max attempts: {max_attempts}\n")
-    
+
     # Handle different game modes
     if mode == "pvc":
         player_name = input("Enter your name: ").strip() or "Player"
         game = Game(rules=rules, mode="pvc", max_attempts=max_attempts)
         guesser_name = player_name
-        print(f"\nWelcome {player_name}! The computer has generated a secret code.")
+        print(
+            f"\nWelcome {player_name}! The computer has generated a secret code.",
+        )
         print("Try to guess it!\n")
-        
+
     elif mode == "pvp":
-        player1_name = input("Player 1 name (code setter): ").strip() or "Player1"
-        player2_name = input("Player 2 name (code breaker): ").strip() or "Player2"
-        
+        player1_name = (
+            input("Player 1 name (code setter): ").strip() or "Player1"
+        )
+        player2_name = (
+            input("Player 2 name (code breaker): ").strip() or "Player2"
+        )
+
         # Player 1 sets the secret
         print(f"\n{player1_name}, please enter the secret code.")
-        print(f"(It will not be displayed on screen)")
-        
+        print("It will not be displayed on screen")
+
         while True:
-            secret = getpass(f"Secret code ({length} characters from '{alphabet}'): ").strip()
+            secret = getpass(
+                f"Secret code ({length} characters from '{alphabet}'): "
+            ).strip()
             try:
                 # Validate the secret
                 from .engine import validate_guess
+
                 validate_guess(secret, rules)
                 break
             except ValueError as e:
                 print(f"Invalid secret: {e}")
                 print("Please try again.\n")
-        
-        game = Game(rules=rules, mode="pvp", max_attempts=max_attempts, secret=secret)
+
+        game = Game(
+            rules=rules,
+            mode="pvp",
+            max_attempts=max_attempts,
+            secret=secret,
+        )
         guesser_name = player2_name
-        print(f"\n{player2_name}, try to guess {player1_name}'s secret code!\n")
+        print(
+            f"\n{player2_name}, try to guess {player1_name}'s secret code!\n",
+        )
     else:
         raise ValueError(f"Unknown mode: {mode}")
-    
+
     # Main game loop
     while not game.is_over():
-        remaining = game.remaining_attempts()
         attempt_num = game.attempts_used + 1
-        
-        guess = input(f"Attempt {attempt_num}/{max_attempts} - Your guess: ").strip()
-        
+
+        guess = input(
+            f"Attempt {attempt_num}/{max_attempts} - Your guess: "
+        ).strip()
+
         try:
             result = game.make_guess(guesser_name, guess)
         except ValueError as e:
             print(f"❌ Invalid guess: {e}\n")
             continue
-        
+
         bulls = result["bulls"]
         cows = result["cows"]
         print(f"Result: 🎯 {bulls} bulls, 🐄 {cows} cows")
-        
+
         if result["is_finished"]:
             if result["won"]:
-                print(f"\n🎉 Congratulations {guesser_name}! You won in {result['attempts_used']} attempts!")
+                print(
+                    f"\n🎉 Congratulations {guesser_name}! "
+                    f"You won in {result['attempts_used']} attempts!",
+                )
             else:
-                print(f"\n😢 Game Over! You've used all {max_attempts} attempts.")
+                print(
+                    f"\n😢 Game Over! You've used all {max_attempts} attempts.",
+                )
                 print(f"The secret was: {result['secret']}")
             print()
             break
         else:
-            print(f"Remaining attempts: {result['remaining_attempts']}\n")
-    
+            print(
+                f"Remaining attempts: {result['remaining_attempts']}\n",
+            )
+
     # Calculate and save score
     score = calculate_score(
         won=game.won,
         attempts_used=game.attempts_used,
         max_attempts=max_attempts,
-        mode=mode
+        mode=mode,
     )
-    
+
     print(f"Your score: {score}")
-    
+
     # Create score entry
     entry = ScoreEntry(
         player_name=guesser_name,
@@ -126,13 +153,13 @@ def play(
         attempts_used=game.attempts_used,
         max_attempts=max_attempts,
         score=score,
-        timestamp=datetime.now().isoformat()
+        timestamp=datetime.now().isoformat(),
     )
-    
+
     # Save score
     save_score(entry)
     print("✅ Score saved!\n")
-    
+
     # Display top scores
     print("🏆 Top 5 Scores:")
     print("-" * 60)
@@ -140,8 +167,11 @@ def play(
     if top:
         for i, entry in enumerate(top, 1):
             won_emoji = "✅" if entry.won else "❌"
-            print(f"{i}. {entry.player_name:15} | {won_emoji} | Score: {entry.score:3} | "
-                  f"{entry.mode.upper()} | {entry.attempts_used}/{entry.max_attempts} attempts")
+            print(
+                f"{i}. {entry.player_name:15} | {won_emoji} | "
+                f"Score: {entry.score:3} | {entry.mode.upper()} | "
+                f"{entry.attempts_used}/{entry.max_attempts} attempts",
+            )
     else:
         print("No scores yet. You're the first!")
     print("-" * 60)
@@ -155,15 +185,51 @@ def main() -> None:
     """
     parser = argparse.ArgumentParser(
         prog="mastermind",
-        description="Play Mastermind in your terminal."
+        description="Play Mastermind in your terminal.",
     )
-    parser.add_argument("--length", type=int, default=4, help="Code length (default: 4)")
-    parser.add_argument("--alphabet", type=str, default="012345", help="Allowed symbols, e.g., '012345' or 'ABCDEF'")
-    parser.add_argument("--allow-duplicates", action="store_true", default=True, help="Allow repeated symbols (default)")
-    parser.add_argument("--no-duplicates", dest="allow_duplicates", action="store_false", help="Disallow duplicates")
-    parser.add_argument("--mode", type=str, choices=["pvc", "pvp"], default="pvc", help="Game mode: pvc (Player vs Computer) or pvp (Player vs Player)")
-    parser.add_argument("--max-attempts", type=int, default=10, help="Maximum number of attempts (default: 10)")
-    parser.add_argument("--seed", type=int, default=None, help="Optional RNG seed for reproducible sessions")
+    parser.add_argument(
+        "--length",
+        type=int,
+        default=4,
+        help="Code length (default: 4)",
+    )
+    parser.add_argument(
+        "--alphabet",
+        type=str,
+        default="012345",
+        help="Allowed symbols, e.g., '012345' or 'ABCDEF'",
+    )
+    parser.add_argument(
+        "--allow-duplicates",
+        action="store_true",
+        default=True,
+        help="Allow repeated symbols (default)",
+    )
+    parser.add_argument(
+        "--no-duplicates",
+        dest="allow_duplicates",
+        action="store_false",
+        help="Disallow duplicates",
+    )
+    parser.add_argument(
+        "--mode",
+        type=str,
+        choices=["pvc", "pvp"],
+        default="pvc",
+        help="Game mode: pvc (Player vs Computer) or pvp (Player vs Player)",
+    )
+    parser.add_argument(
+        "--max-attempts",
+        type=int,
+        default=10,
+        help="Maximum number of attempts (default: 10)",
+    )
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=None,
+        help="Optional RNG seed for reproducible sessions",
+    )
 
     # subcommand pattern (kept for future extensibility)
     subparsers = parser.add_subparsers(dest="command")
@@ -173,7 +239,14 @@ def main() -> None:
 
     # default to 'play' if no subcommand is given
     if args.command is None or args.command == "play":
-        play(args.length, args.alphabet, args.allow_duplicates, args.mode, args.max_attempts, args.seed)
+        play(
+            args.length,
+            args.alphabet,
+            args.allow_duplicates,
+            args.mode,
+            args.max_attempts,
+            args.seed,
+        )
     else:
         parser.print_help()
 
