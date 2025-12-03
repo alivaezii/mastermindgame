@@ -1,6 +1,6 @@
 # 🎮 Mastermind Game (Python)
 
-A simple command-line implementation of the classic **Mastermind** logic game, built to demonstrate clean software design, testing, and CI/CD automation principles using Python.
+A command-line implementation of the classic **Mastermind** logic game with multiple game modes, scoring system, and persistent leaderboard. Built to demonstrate clean software design, testing, and CI/CD automation principles using Python.
 
 ---
 
@@ -12,15 +12,65 @@ conda env create -f environment.yml
 conda activate mastermind
 ```
 
-### 2. Run the game
+### 2. Install the package
 ```bash
-python -m mastermind
+pip install -e .
 ```
 
-### 3. Run tests
+### 3. Play the game
+```bash
+# Player vs Computer (default)
+mastermind
+
+# Player vs Computer with custom settings
+mastermind --mode pvc --max-attempts 10
+
+# Player vs Player mode
+mastermind --mode pvp --max-attempts 8
+
+# Custom rules
+mastermind --length 5 --alphabet ABCDEF --no-duplicates --max-attempts 12
+```
+
+### 4. Run tests
 ```bash
 pytest
 ```
+
+---
+
+## 🎯 Features
+
+### Game Modes
+
+**Player vs Computer (PvC)**
+- Computer generates a random secret code
+- Player tries to guess the code
+- Default mode
+
+**Player vs Player (PvP)**
+- Player 1 sets a secret code (hidden input)
+- Player 2 tries to guess the code
+- Great for playing with friends!
+
+### Scoring System
+
+- **Win**: Base score of 100 + bonus for remaining attempts (10 points each)
+- **Loss**: 0 points
+- Scores are automatically saved to `scores.json`
+- Top 5 scores displayed after each game
+
+**Example Scoring:**
+- Win in 3/10 attempts: 100 + (7 × 10) = **170 points**
+- Win in 10/10 attempts: 100 + (0 × 10) = **100 points**
+- Loss: **0 points**
+
+### Configurable Rules
+
+- **Code length**: Default 4, customizable via `--length`
+- **Alphabet**: Default "012345", customizable via `--alphabet`
+- **Duplicates**: Allowed by default, disable with `--no-duplicates`
+- **Max attempts**: Default 10, customizable via `--max-attempts`
 
 ---
 
@@ -41,21 +91,64 @@ This project follows a lightweight yet strict **Testing and Quality Policy**:
 ---
 
 ## 📂 Project Structure
+
 ```
 mastermindgame/
 │
 ├── src/mastermind/
-│   ├── __init__.py
-│   ├── engine.py
-│   ├── cli.py
+│   ├── __init__.py          # Package exports
+│   ├── engine.py            # Core rules and validation logic
+│   ├── game.py              # Game state management
+│   ├── scoreboard.py        # Scoring and persistence
+│   └── cli.py               # Command-line interface
 │
 ├── tests/
-│   ├── test_engine.py
-│   └── test_cli.py
+│   ├── test_engine.py       # Engine unit tests
+│   ├── test_game.py         # Game class tests
+│   ├── test_scoreboard.py   # Scoreboard tests
+│   └── test_cli.py          # CLI integration tests
 │
-├── environment.yml
-├── pyproject.toml
-└── .github/workflows/ci.yml
+├── scores.json              # Persistent scoreboard (auto-created)
+├── environment.yml          # Conda environment
+├── pyproject.toml           # Project configuration
+└── .github/workflows/ci.yml # CI/CD pipeline
+```
+
+---
+
+## 🏗️ Architecture
+
+The codebase is organized into clean, testable modules:
+
+- **`engine.py`**: Pure functions for game rules (`Rules`, `validate_guess`, `score`)
+- **`game.py`**: `Game` class encapsulating game state and logic, supporting both PvC and PvP modes
+- **`scoreboard.py`**: Score calculation and JSON persistence (`ScoreEntry`, `calculate_score`, `save_score`, `load_scores`, `top_scores`)
+- **`cli.py`**: User interface layer, completely decoupled from game logic (ready for future GUI)
+
+This separation makes the codebase easy to extend (e.g., adding a web or GUI interface) without modifying core logic.
+
+---
+
+## 📖 Usage Examples
+
+### Basic Game (PvC)
+```bash
+mastermind
+```
+
+### Player vs Player
+```bash
+mastermind --mode pvp
+```
+
+### Hard Mode (no duplicates, limited attempts)
+```bash
+mastermind --no-duplicates --max-attempts 5
+```
+
+### Custom Alphabet
+```bash
+mastermind --alphabet RGBYOP --length 6
 ```
 
 ---
