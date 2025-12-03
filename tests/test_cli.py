@@ -1,14 +1,12 @@
 # tests/test_cli.py
 import sys
 import pytest
-from pathlib import Path
 
 
 sys.modules.pop("mastermind", None)
 sys.modules.pop("mastermind.cli", None)
 
 import mastermind.cli as cli_mod  # noqa: E402
-from mastermind.engine import Rules  
 
 
 def test_cli_help_exits_with_zero():
@@ -52,7 +50,6 @@ def test_play_pvc_quick_win(capsys, monkeypatch, tmp_path):
     monkeypatch.setattr("builtins.input", lambda *a, **k: next(inputs))
     
     # Use tmp_path for scores
-    scores_file = tmp_path / "scores.json"
     monkeypatch.setattr("mastermind.cli.save_score", lambda entry, path="scores.json": None)
     monkeypatch.setattr("mastermind.cli.top_scores", lambda limit=10, path="scores.json": [])
     
@@ -208,4 +205,5 @@ def test_play_shows_attempt_counter(capsys, monkeypatch):
     assert "bulls" in out
     assert "Congratulations" in out
     assert "won in 3 attempts" in out
+
 
