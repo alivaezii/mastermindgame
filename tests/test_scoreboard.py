@@ -5,8 +5,6 @@ Tests cover score calculation, persistence, and retrieval.
 Uses tmp_path fixture for isolated file operations.
 """
 import json
-from datetime import datetime
-from pathlib import Path
 
 import pytest
 
@@ -260,3 +258,4 @@ def test_json_format(tmp_path):
     assert len(data) == 1
     assert data[0]["player_name"] == "Alice"
     assert data[0]["score"] == 170
+
