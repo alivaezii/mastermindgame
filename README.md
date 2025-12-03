@@ -190,10 +190,11 @@ If all stages pass, the build turns ✅ green in GitHub Actions.
 
 ## 📝 License
 MIT License © 2025  
-Developed by **Hochschule Campus Wien**
+Developed by **TM26-Hochschule Campus Wien**
+
 
 ---
 
 ### 💡 Related Documentation
-- [Quality Assurance & CI/CD Policy](./Quality_Testing_CICD_Policy.md)
-- [Python ↔ Java Toolchain Comparison](./Python_vs_Java_Tooling.md)
+- [Quality Assurance & CI/CD Policy](./docs/Quality_Testing_CICD_Policy.md)
+- [Python ↔ Java Toolchain Comparison](./docs/Python_vs_Java_Tooling.md)
