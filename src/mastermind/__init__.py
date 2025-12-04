@@ -15,3 +15,4 @@ __all__ = [
     "top_scores",
 ]
 __version__ = "0.2.0"  # Updated for Sprint 2
+c

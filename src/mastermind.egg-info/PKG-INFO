@@ -1,0 +1,217 @@
+Metadata-Version: 2.4
+Name: mastermind
+Version: 0.1.0
+Summary: Mastermind game with a simple CLI
+Author: Team Mastermind
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+Requires-Dist: flake8; extra == "dev"
+Requires-Dist: black; extra == "dev"
+Requires-Dist: isort; extra == "dev"
+Requires-Dist: pre-commit; extra == "dev"
+Dynamic: license-file
+
+# 🎮 Mastermind Game (Python)
+
+A command-line implementation of the classic **Mastermind** logic game with multiple game modes, scoring system, and persistent leaderboard. Built to demonstrate clean software design, testing, and CI/CD automation principles using Python.
+
+---
+
+## 🚀 Quick Start
+
+### 1. Create and activate environment
+```bash
+conda env create -f environment.yml
+conda activate mastermind
+```
+
+### 2. Install the package
+```bash
+pip install -e .
+```
+
+### 3. Play the game
+```bash
+# Player vs Computer (default)
+mastermind
+
+# Player vs Computer with custom settings
+mastermind --mode pvc --max-attempts 10
+
+# Player vs Player mode
+mastermind --mode pvp --max-attempts 8
+
+# Custom rules
+mastermind --length 5 --alphabet ABCDEF --no-duplicates --max-attempts 12
+```
+
+### 4. Run tests
+```bash
+pytest
+```
+
+---
+
+## 🎯 Features
+
+### Game Modes
+
+**Player vs Computer (PvC)**
+- Computer generates a random secret code
+- Player tries to guess the code
+- Default mode
+
+**Player vs Player (PvP)**
+- Player 1 sets a secret code (hidden input)
+- Player 2 tries to guess the code
+- Great for playing with friends!
+
+### Scoring System
+
+- **Win**: Base score of 100 + bonus for remaining attempts (10 points each)
+- **Loss**: 0 points
+- Scores are automatically saved to `scores.json`
+- Top 5 scores displayed after each game
+
+**Example Scoring:**
+- Win in 3/10 attempts: 100 + (7 × 10) = **170 points**
+- Win in 10/10 attempts: 100 + (0 × 10) = **100 points**
+- Loss: **0 points**
+
+### Configurable Rules
+
+- **Code length**: Default 4, customizable via `--length`
+- **Alphabet**: Default "012345", customizable via `--alphabet`
+- **Duplicates**: Allowed by default, disable with `--no-duplicates`
+- **Max attempts**: Default 10, customizable via `--max-attempts`
+
+---
+
+## 🧪 Testing & Code Quality
+
+This project follows a lightweight yet strict **Testing and Quality Policy**:
+
+| Area | Tool | Purpose |
+|------|------|----------|
+| **Testing** | `pytest` + `pytest-cov` | Unit & CLI tests, min. 85% coverage |
+| **Formatting** | `black` + `isort` | Code formatting & import sorting |
+| **Linting** | `flake8` | Static code analysis |
+| **Pre-commit** | `pre-commit` | Auto-runs all checks before pushing |
+| **CI/CD** | GitHub Actions | Multi-version tests (Python 3.10 & 3.11) |
+
+📄 For full details: [Quality & CI/CD Policy](./Quality_Testing_CICD_Policy.md)
+
+---
+
+## 📂 Project Structure
+
+```
+mastermindgame/
+│
+├── src/mastermind/
+│   ├── __init__.py          # Package exports
+│   ├── engine.py            # Core rules and validation logic
+│   ├── game.py              # Game state management
+│   ├── scoreboard.py        # Scoring and persistence
+│   └── cli.py               # Command-line interface
+│
+├── tests/
+│   ├── test_engine.py       # Engine unit tests
+│   ├── test_game.py         # Game class tests
+│   ├── test_scoreboard.py   # Scoreboard tests
+│   └── test_cli.py          # CLI integration tests
+│
+├── scores.json              # Persistent scoreboard (auto-created)
+├── environment.yml          # Conda environment
+├── pyproject.toml           # Project configuration
+└── .github/workflows/ci.yml # CI/CD pipeline
+```
+
+---
+
+## 🏗️ Architecture
+
+The codebase is organized into clean, testable modules:
+
+- **`engine.py`**: Pure functions for game rules (`Rules`, `validate_guess`, `score`)
+- **`game.py`**: `Game` class encapsulating game state and logic, supporting both PvC and PvP modes
+- **`scoreboard.py`**: Score calculation and JSON persistence (`ScoreEntry`, `calculate_score`, `save_score`, `load_scores`, `top_scores`)
+- **`cli.py`**: User interface layer, completely decoupled from game logic (ready for future GUI)
+
+This separation makes the codebase easy to extend (e.g., adding a web or GUI interface) without modifying core logic.
+
+---
+
+## 📖 Usage Examples
+
+### Basic Game (PvC)
+```bash
+mastermind
+```
+
+### Player vs Player
+```bash
+mastermind --mode pvp
+```
+
+### Hard Mode (no duplicates, limited attempts)
+```bash
+mastermind --no-duplicates --max-attempts 5
+```
+
+### Custom Alphabet
+```bash
+mastermind --alphabet RGBYOP --length 6
+```
+
+---
+
+## ⚙️ Continuous Integration (CI)
+
+All commits and pull requests trigger an automated workflow that performs:
+
+1. Environment setup via **Conda**
+2. Auto-formatting using **isort** and **black**
+3. Linting with **flake8**
+4. Running **pytest** for all unit and CLI tests
+5. Enforcing **coverage ≥ 85%**
+
+If all stages pass, the build turns ✅ green in GitHub Actions.
+
+---
+
+## 🤝 Contributing
+
+1. Fork this repository  
+2. Create a new branch: `feature/my-feature`  
+3. Run local quality checks before committing:
+   ```bash
+   isort . && black . && flake8 . && pytest
+   ```
+4. Submit a Pull Request — all CI jobs must pass before merge.
+
+---
+
+## 🧱 Built With
+- Python 3.10 / 3.11
+- Conda environment management
+- pytest + coverage
+- black / isort / flake8 / pre-commit
+- GitHub Actions for CI/CD automation
+
+---
+
+## 📝 License
+MIT License © 2025  
+Developed by **TM26-Hochschule Campus Wien**
+
+
+---
+
+### 💡 Related Documentation
+- [Quality Assurance & CI/CD Policy](./docs/Quality_Testing_CICD_Policy.md)
+- [Python ↔ Java Toolchain Comparison](./docs/Python_vs_Java_Tooling.md)
