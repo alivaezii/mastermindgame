@@ -1,6 +1,6 @@
 # 🎮 Mastermind Game (Python)
 
-A command-line implementation of the classic **Mastermind** logic game with multiple game modes, scoring system, and persistent leaderboard. Built to demonstrate clean software design, testing, and CI/CD automation principles using Python.
+A complete implementation of the classic **Mastermind** logic game with both **command-line** and **graphical user interface (GUI)** options. Features multiple game modes, scoring system, and persistent leaderboard. Built to demonstrate clean software design, testing, and CI/CD automation principles using Python.
 
 ---
 
@@ -18,6 +18,17 @@ pip install -e .
 ```
 
 ### 3. Play the game
+
+**🎨 GUI Mode (Recommended)**
+```bash
+# Launch the graphical interface
+python -m mastermind.gui.app
+
+# Or directly
+python src/mastermind/gui/app.py
+```
+
+**💻 Command-Line Mode**
 ```bash
 # Player vs Computer (default)
 mastermind
@@ -41,6 +52,22 @@ pytest
 
 ## 🎯 Features
 
+### Dual Interface
+
+**🎨 Graphical User Interface (GUI)**
+- Beautiful color-based visual interface using Tkinter
+- Interactive color selection with clickable buttons
+- Visual feedback with bulls (●) and cows (○) indicators
+- Scrollable guess history
+- High scores leaderboard with professional table layout
+- Intuitive navigation between screens
+- Modern dark theme with vibrant colors
+
+**💻 Command-Line Interface (CLI)**
+- Traditional text-based gameplay
+- Perfect for terminal enthusiasts
+- Lightweight and fast
+
 ### Game Modes
 
 **Player vs Computer (PvC)**
@@ -49,7 +76,7 @@ pytest
 - Default mode
 
 **Player vs Player (PvP)**
-- Player 1 sets a secret code (hidden input)
+- Player 1 sets a secret code (hidden input in CLI, visual in GUI)
 - Player 2 tries to guess the code
 - Great for playing with friends!
 
@@ -100,13 +127,27 @@ mastermindgame/
 │   ├── engine.py            # Core rules and validation logic
 │   ├── game.py              # Game state management
 │   ├── scoreboard.py        # Scoring and persistence
-│   └── cli.py               # Command-line interface
+│   ├── cli.py               # Command-line interface
+│   └── gui/                 # Graphical user interface (Sprint 3)
+│       ├── __init__.py
+│       ├── app.py           # Main GUI application controller
+│       ├── utils.py         # Color-symbol mapping utilities
+│       ├── screens/         # All game screens
+│       │   ├── start.py     # Game configuration screen
+│       │   ├── secret.py    # PvP secret selection
+│       │   ├── gameboard.py # Main gameplay interface
+│       │   ├── gameover.py  # Results & scoring
+│       │   └── highscores.py # Leaderboard display
+│       └── widgets/         # Reusable UI components
+│           ├── colorpicker.py # Color selection widget
+│           └── row.py       # Guess row display
 │
 ├── tests/
 │   ├── test_engine.py       # Engine unit tests
 │   ├── test_game.py         # Game class tests
 │   ├── test_scoreboard.py   # Scoreboard tests
-│   └── test_cli.py          # CLI integration tests
+│   ├── test_cli.py          # CLI integration tests
+│   └── test_gui_utils.py    # GUI utilities tests
 │
 ├── scores.json              # Persistent scoreboard (auto-created)
 ├── environment.yml          # Conda environment
@@ -123,9 +164,14 @@ The codebase is organized into clean, testable modules:
 - **`engine.py`**: Pure functions for game rules (`Rules`, `validate_guess`, `score`)
 - **`game.py`**: `Game` class encapsulating game state and logic, supporting both PvC and PvP modes
 - **`scoreboard.py`**: Score calculation and JSON persistence (`ScoreEntry`, `calculate_score`, `save_score`, `load_scores`, `top_scores`)
-- **`cli.py`**: User interface layer, completely decoupled from game logic (ready for future GUI)
+- **`cli.py`**: Command-line user interface, completely decoupled from game logic
+- **`gui/`**: Graphical user interface (Sprint 3)
+  - **MVC Architecture**: Clean separation of Model (Game), View (screens/widgets), Controller (app navigation)
+  - **Color Mapping**: Translates visual colors to game engine symbols
+  - **Reusable Widgets**: ColorPicker and GuessRow components
+  - **No Logic Duplication**: GUI calls existing Game and scoreboard functions
 
-This separation makes the codebase easy to extend (e.g., adding a web or GUI interface) without modifying core logic.
+This separation makes the codebase easy to extend (e.g., adding a web interface) without modifying core logic.
 
 ---
 
@@ -190,11 +236,10 @@ If all stages pass, the build turns ✅ green in GitHub Actions.
 
 ## 📝 License
 MIT License © 2025  
-Developed by **TM26-Hochschule Campus Wien**
-
+Developed by **Hochschule Campus Wien**
 
 ---
 
 ### 💡 Related Documentation
-- [Quality Assurance & CI/CD Policy](./docs/Quality_Testing_CICD_Policy.md)
-- [Python ↔ Java Toolchain Comparison](./docs/Python_vs_Java_Tooling.md)
+- [Quality Assurance & CI/CD Policy](./Quality_Testing_CICD_Policy.md)
+- [Python ↔ Java Toolchain Comparison](./Python_vs_Java_Tooling.md)
