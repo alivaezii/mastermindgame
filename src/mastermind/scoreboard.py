@@ -6,7 +6,6 @@ Provides score calculation, persistence to JSON, and retrieval of top scores.
 
 import json
 from dataclasses import dataclass, asdict
-from datetime import datetime
 from pathlib import Path
 from typing import Union
 
@@ -141,3 +140,4 @@ def top_scores(limit: int = 10, path: Union[Path, str] = "scores.json") -> list[
     )
     
     return sorted_scores[:limit]
+
