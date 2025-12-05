@@ -123,6 +123,22 @@ docker build -t mastermindgame .
 ```
 
 
+### Pull from GitHub Container Registry (GHCR)
+
+``` bash
+docker pull ghcr.io/alivaezii/mastermindgame:1.0.0
+```
+###  Run the Mastermind CLI from GHCR
+
+``` bash
+docker run --rm -it ghcr.io/alivaezii/mastermindgame:1.0.0
+```
+
+ℹ Notes
+
+The container includes only the CLI version of Mastermind.
+The GUI cannot run inside Docker because Tkinter requires access to a local window server.
+
 ---
 
 ## 🎯 Features
@@ -365,6 +381,7 @@ This project includes full Agile documentation, test specifications, retrospecti
 ### 💡 Related Documentation
 - [Quality Assurance & CI/CD Policy](./docs/Quality_Testing_CICD_Policy.md)
 - [Python ↔ Java Toolchain Comparison](./docs/Python_vs_Java_Tooling.md)
+
 
 
 
