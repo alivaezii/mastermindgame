@@ -71,20 +71,21 @@ of Mastermind.
 ### Pull from Docker Hub
 
 ``` bash
-docker pull alivaezii/mastermindgame:latest
+docker pull alivaezii/mastermindgame:1.0.0
+
 ```
 
 ### Run the game in Docker
 
 ``` bash
-docker run --rm -it alivaezii/mastermindgame:latest
+docker run --rm -it alivaezii/mastermindgame:1.0.0
 ```
 
 ### Run with custom arguments
 
 ``` bash
-docker run --rm -it alivaezii/mastermindgame:latest --mode pvc --max-attempts 12
-docker run --rm -it alivaezii/mastermindgame:latest --no-duplicates --length 5
+docker run --rm -it alivaezii/mastermindgame:1.0.0 --mode pvc --max-attempts 12
+docker run --rm -it alivaezii/mastermindgame:1.0.0 --no-duplicates --length 5
 ```
 
 ### Build locally (optional)
@@ -327,6 +328,7 @@ Sprint-based development following **SCRUM**
 ### 💡 Related Documentation
 - [Quality Assurance & CI/CD Policy](./docs/Quality_Testing_CICD_Policy.md)
 - [Python ↔ Java Toolchain Comparison](./docs/Python_vs_Java_Tooling.md)
+
 
 
 
