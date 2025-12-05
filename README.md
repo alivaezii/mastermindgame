@@ -11,7 +11,23 @@ A complete implementation of the classic **Mastermind** logic game with both **c
 [Mastermind Wikipedia (Game)](https://de.wikipedia.org/wiki/Mastermind_(Spiel))
 
 ---
+## 🛠 Tech Stack & Tools
 
+<p align="left">
+
+  <img src="https://img.shields.io/badge/Python-3.12+-blue?logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/CLI-Application-black?logo=terminal&logoColor=white" />
+  <img src="https://img.shields.io/badge/GUI-Tkinter-orange?logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Test-Pytest-0A9EDC?logo=pytest&logoColor=white" />
+  <img src="https://img.shields.io/badge/Code%20Style-Black-black?logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Linter-Flake8-7A83F7?logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Imports-Isort-47848F?logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/CI/CD-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white" />
+  <img src="https://img.shields.io/badge/Docker-Containerized-2496ED?logo=docker&logoColor=white" />
+  <img src="https://img.shields.io/badge/PyPI-Package-blue?logo=pypi&logoColor=white" />
+
+</p>
+---
 ## 🚀 Quick Start
 
 ### 1. Create and activate environment
@@ -336,6 +352,7 @@ Sprint-based development following **SCRUM**
 ### 💡 Related Documentation
 - [Quality Assurance & CI/CD Policy](./docs/Quality_Testing_CICD_Policy.md)
 - [Python ↔ Java Toolchain Comparison](./docs/Python_vs_Java_Tooling.md)
+
 
 
 
