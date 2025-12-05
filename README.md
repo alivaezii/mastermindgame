@@ -1,6 +1,11 @@
+<img width="1536" height="1024" alt="d7082fec-d539-418a-a138-a7553934255c" src="https://github.com/user-attachments/assets/a83fa991-3602-42a3-94ad-959f7e553b5a" />
+
+<br>
+
 # 🎮 Mastermind Game (Python)
 
 A complete implementation of the classic **Mastermind** logic game with both **command-line** and **graphical user interface (GUI)** options. Features multiple game modes, scoring system, and persistent leaderboard. Built to demonstrate clean software design, testing, and CI/CD automation principles using Python.
+[Mastermind Wikipedia (Game)](https://de.wikipedia.org/wiki/Mastermind_(Spiel))
 
 ---
 
@@ -328,6 +333,7 @@ Sprint-based development following **SCRUM**
 ### 💡 Related Documentation
 - [Quality Assurance & CI/CD Policy](./docs/Quality_Testing_CICD_Policy.md)
 - [Python ↔ Java Toolchain Comparison](./docs/Python_vs_Java_Tooling.md)
+
 
 
 
