@@ -27,7 +27,7 @@ A complete implementation of the classic **Mastermind** logic game with both **c
   <img src="https://img.shields.io/badge/PyPI-Package-blue?logo=pypi&logoColor=white" />
 
 </p>
----
+
 </p>
 
 ## 🚀 Quick Start
@@ -354,6 +354,7 @@ Sprint-based development following **SCRUM**
 ### 💡 Related Documentation
 - [Quality Assurance & CI/CD Policy](./docs/Quality_Testing_CICD_Policy.md)
 - [Python ↔ Java Toolchain Comparison](./docs/Python_vs_Java_Tooling.md)
+
 
 
 
