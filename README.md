@@ -125,6 +125,9 @@ docker build -t mastermindgame .
 
 ### Pull from GitHub Container Registry (GHCR)
 
+[![GHCR](https://img.shields.io/badge/GHCR-Container%20Image-2088FF?logo=github&logoColor=white)](https://github.com/users/alivaezii/packages/container/package/mastermindgame)
+
+
 ``` bash
 docker pull ghcr.io/alivaezii/mastermindgame:1.0.0
 ```
@@ -381,6 +384,7 @@ This project includes full Agile documentation, test specifications, retrospecti
 ### 💡 Related Documentation
 - [Quality Assurance & CI/CD Policy](./docs/Quality_Testing_CICD_Policy.md)
 - [Python ↔ Java Toolchain Comparison](./docs/Python_vs_Java_Tooling.md)
+
 
 
 
