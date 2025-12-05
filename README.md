@@ -155,12 +155,10 @@ Below is a complete overview of the Mastermind game's graphical interface, showi
 3. **Winning Screen**
 4. **Game Over Screen**
 
+
 <p align="center">
-  <img src="docs/photo-grid.png)" alt="Mastermind Game Screenshots" width="800">
+  <img src="docs/photo-grid.png" alt="Mastermind Game Screenshots" style="max-width: 100%; height: auto;">
 </p>
-
-
-
 
 
 ---
@@ -307,6 +305,7 @@ Developed by **TM26 -Hochschule Campus Wien**
 ### 💡 Related Documentation
 - [Quality Assurance & CI/CD Policy](./docs/Quality_Testing_CICD_Policy.md)
 - [Python ↔ Java Toolchain Comparison](./docs/Python_vs_Java_Tooling.md)
+
 
 
 
