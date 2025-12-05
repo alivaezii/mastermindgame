@@ -50,6 +50,39 @@ pytest
 
 ---
 
+## 🐳 Docker Support (CLI Only)
+
+This project includes an official Docker image for the **CLI version**
+of Mastermind.
+
+### Pull from Docker Hub
+
+``` bash
+docker pull alivaezii/mastermindgame:latest
+```
+
+### Run the game in Docker
+
+``` bash
+docker run --rm -it alivaezii/mastermindgame:latest
+```
+
+### Run with custom arguments
+
+``` bash
+docker run --rm -it alivaezii/mastermindgame:latest --mode pvc --max-attempts 12
+docker run --rm -it alivaezii/mastermindgame:latest --no-duplicates --length 5
+```
+
+### Build locally (optional)
+
+``` bash
+docker build -t mastermindgame .
+```
+
+
+---
+
 ## 🎯 Features
 
 ### Dual Interface
@@ -243,5 +276,6 @@ Developed by **TM26 -Hochschule Campus Wien**
 ### 💡 Related Documentation
 - [Quality Assurance & CI/CD Policy](./docs/Quality_Testing_CICD_Policy.md)
 - [Python ↔ Java Toolchain Comparison](./docs/Python_vs_Java_Tooling.md)
+
 
 
