@@ -113,7 +113,7 @@ This project follows a lightweight yet strict **Testing and Quality Policy**:
 | **Pre-commit** | `pre-commit` | Auto-runs all checks before pushing |
 | **CI/CD** | GitHub Actions | Multi-version tests (Python 3.10 & 3.11) |
 
-📄 For full details: [Quality & CI/CD Policy](./Quality_Testing_CICD_Policy.md)
+📄 For full details: [Quality & CI/CD Policy](./docs/Quality_Testing_CICD_Policy.md)
 
 ---
 
@@ -243,4 +243,5 @@ Developed by **TM26 -Hochschule Campus Wien**
 ### 💡 Related Documentation
 - [Quality Assurance & CI/CD Policy](./docs/Quality_Testing_CICD_Policy.md)
 - [Python ↔ Java Toolchain Comparison](./docs/Python_vs_Java_Tooling.md)
+
 
