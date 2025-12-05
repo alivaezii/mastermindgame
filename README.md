@@ -351,9 +351,19 @@ Sprint-based development following **SCRUM**
 
 ---
 
+## 📘 Project Documentation
+
+This project includes full Agile documentation, test specifications, retrospectives, architecture diagrams, and development guidelines.
+
+[![Open Wiki](https://img.shields.io/badge/Project%20Wiki-Open-blue?logo=github&style=for-the-badge)](https://github.com/alivaezii/mastermindgame/wiki)
+
+---
+
+
 ### 💡 Related Documentation
 - [Quality Assurance & CI/CD Policy](./docs/Quality_Testing_CICD_Policy.md)
 - [Python ↔ Java Toolchain Comparison](./docs/Python_vs_Java_Tooling.md)
+
 
 
 
