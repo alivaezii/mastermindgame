@@ -297,14 +297,34 @@ If all stages pass, the build turns ✅ green in GitHub Actions.
 ---
 
 ## 📝 License
-MIT License © 2025  
+
+
+### Mastermind Game – Team Information
 Developed by **TM26 -Hochschule Campus Wien**
+MIT License © 2025  
+A student software engineering project at Hochschule Campus Wien  
+Sprint-based development following **SCRUM**
+
+<br>
+
+| Role | Name | Contact |
+|------|------|---------|
+| Product Owner | **Laurenz** | laurenz.stelzl@stud.hcw.ac.at |
+| Scrum Master | **Markus** | markus.maximus@stud.hcw.ac.at |
+| Senior Developer & Tester | **Ali** | mohammadali.vaezi@stud.hcw.ac.at |
+| Python Developer | **Adnan** | adnan.eminovic@stud.hcw.ac.at |
+| Python Developer | **Hossein** | seyed.meymandi.nezhad@stud.hcw.ac.at |
+
+
+<br>
+
 
 ---
 
 ### 💡 Related Documentation
 - [Quality Assurance & CI/CD Policy](./docs/Quality_Testing_CICD_Policy.md)
 - [Python ↔ Java Toolchain Comparison](./docs/Python_vs_Java_Tooling.md)
+
 
 
 
