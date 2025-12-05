@@ -146,7 +146,7 @@ docker build -t mastermindgame .
 - **Max attempts**: Default 10, customizable via `--max-attempts`
 
 
-## 🎮 Mastermind Game – UI Overview
+## 🎮 Mastermind Game: UI Overview
 
 Below is a complete overview of the Mastermind game's graphical interface, showing all major gameplay states:
 
@@ -283,7 +283,7 @@ If all stages pass, the build turns ✅ green in GitHub Actions.
    ```bash
    isort . && black . && flake8 . && pytest
    ```
-4. Submit a Pull Request — all CI jobs must pass before merge.
+4. Submit a Pull Request, all CI jobs must pass before merge.
 
 ---
 
@@ -299,10 +299,13 @@ If all stages pass, the build turns ✅ green in GitHub Actions.
 ## 📝 License
 
 
-### Mastermind Game – Team Information
+### Mastermind Game: Team Information
 Developed by **TM26 -Hochschule Campus Wien**
+<br>
 MIT License © 2025  
+<br>
 A student software engineering project at Hochschule Campus Wien  
+<br>
 Sprint-based development following **SCRUM**
 
 <br>
@@ -324,6 +327,7 @@ Sprint-based development following **SCRUM**
 ### 💡 Related Documentation
 - [Quality Assurance & CI/CD Policy](./docs/Quality_Testing_CICD_Policy.md)
 - [Python ↔ Java Toolchain Comparison](./docs/Python_vs_Java_Tooling.md)
+
 
 
 
