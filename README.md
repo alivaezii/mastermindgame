@@ -81,7 +81,7 @@ pytest
 This project includes an official Docker image for the **CLI version**
 of Mastermind.
 
-![Docker Pulls](https://img.shields.io/docker/pulls/alivaezii/mastermindgame)
+[![Docker Image](https://img.shields.io/docker/pulls/alivaezii/mastermindgame?logo=docker)](https://hub.docker.com/repository/docker/alivaezii/mastermindgame)
 ![Image Size](https://img.shields.io/docker/image-size/alivaezii/mastermindgame/1.0.0)
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
 ![Multi-stage](https://img.shields.io/badge/docker-multistage-blue)
@@ -364,6 +364,7 @@ This project includes full Agile documentation, test specifications, retrospecti
 ### 💡 Related Documentation
 - [Quality Assurance & CI/CD Policy](./docs/Quality_Testing_CICD_Policy.md)
 - [Python ↔ Java Toolchain Comparison](./docs/Python_vs_Java_Tooling.md)
+
 
 
 
