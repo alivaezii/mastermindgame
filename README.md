@@ -16,6 +16,7 @@ A complete implementation of the classic **Mastermind** logic game with both **c
 <p align="left">
 
   <img src="https://img.shields.io/badge/Python-3.10-blue?logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Conda-Environment-44A833?logo=anaconda&logoColor=white" />
   <img src="https://img.shields.io/badge/CLI-Application-black?logo=terminal&logoColor=white" />
   <img src="https://img.shields.io/badge/GUI-Tkinter-orange?logo=python&logoColor=white" />
   <img src="https://img.shields.io/badge/Test-Pytest-0A9EDC?logo=pytest&logoColor=white" />
@@ -364,6 +365,7 @@ This project includes full Agile documentation, test specifications, retrospecti
 ### 💡 Related Documentation
 - [Quality Assurance & CI/CD Policy](./docs/Quality_Testing_CICD_Policy.md)
 - [Python ↔ Java Toolchain Comparison](./docs/Python_vs_Java_Tooling.md)
+
 
 
 
