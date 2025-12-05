@@ -95,6 +95,10 @@ of Mastermind.
 
 
 ### Pull from Docker Hub
+ <br>
+![Docker Image]([https://hub.docker.com/repository/docker/alivaezii/mastermindgame/general])
+
+ <br>
 
 ``` bash
 docker pull alivaezii/mastermindgame:1.0.0
@@ -363,6 +367,7 @@ This project includes full Agile documentation, test specifications, retrospecti
 ### 💡 Related Documentation
 - [Quality Assurance & CI/CD Policy](./docs/Quality_Testing_CICD_Policy.md)
 - [Python ↔ Java Toolchain Comparison](./docs/Python_vs_Java_Tooling.md)
+
 
 
 
