@@ -55,14 +55,15 @@ pytest
 This project includes an official Docker image for the **CLI version**
 of Mastermind.
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/alivaezii/mastermindgame)](https://hub.docker.com/r/alivaezii/mastermindgame)
+![Docker Pulls](https://img.shields.io/docker/pulls/alivaezii/mastermindgame)
 ![Image Size](https://img.shields.io/docker/image-size/alivaezii/mastermindgame/1.0.0)
-![Docker Version](https://img.shields.io/docker/v/alivaezii/mastermindgame/1.0.0)
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
 ![Multi-stage](https://img.shields.io/badge/docker-multistage-blue)
 ![Build](https://img.shields.io/badge/build-passing-brightgreen)
 ![Base Image](https://img.shields.io/badge/base-python%3A3.11--slim-blue)
-![CLI Only](https://img.shields.io/badge/interface-CLI--only-lightgrey)
-![Security](https://img.shields.io/badge/security-scanned-green)
+![Interface](https://img.shields.io/badge/interface-CLI--only-lightgrey)
+![Security](https://img.shields.io/badge/security-scanned-brightgreen)
+
 
 
 
@@ -288,6 +289,7 @@ Developed by **TM26 -Hochschule Campus Wien**
 ### 💡 Related Documentation
 - [Quality Assurance & CI/CD Policy](./docs/Quality_Testing_CICD_Policy.md)
 - [Python ↔ Java Toolchain Comparison](./docs/Python_vs_Java_Tooling.md)
+
 
 
 
