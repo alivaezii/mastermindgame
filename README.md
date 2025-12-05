@@ -28,6 +28,8 @@ A complete implementation of the classic **Mastermind** logic game with both **c
 
 </p>
 ---
+</p>
+
 ## 🚀 Quick Start
 
 ### 1. Create and activate environment
@@ -352,6 +354,7 @@ Sprint-based development following **SCRUM**
 ### 💡 Related Documentation
 - [Quality Assurance & CI/CD Policy](./docs/Quality_Testing_CICD_Policy.md)
 - [Python ↔ Java Toolchain Comparison](./docs/Python_vs_Java_Tooling.md)
+
 
 
 
