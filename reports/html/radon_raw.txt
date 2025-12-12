@@ -1,0 +1,204 @@
+src\mastermind\cli.py
+    LOC: 178
+    LLOC: 97
+    SLOC: 129
+    Comments: 5
+    Single comments: 5
+    Multi: 10
+    Blank: 34
+    - Comment Stats
+        (C % L): 3%
+        (C % S): 4%
+        (C + M % L): 8%
+src\mastermind\engine.py
+    LOC: 50
+    LLOC: 26
+    SLOC: 19
+    Comments: 0
+    Single comments: 1
+    Multi: 19
+    Blank: 11
+    - Comment Stats
+        (C % L): 0%
+        (C % S): 0%
+        (C + M % L): 38%
+src\mastermind\game.py
+    LOC: 89
+    LLOC: 58
+    SLOC: 61
+    Comments: 0
+    Single comments: 1
+    Multi: 5
+    Blank: 22
+    - Comment Stats
+        (C % L): 0%
+        (C % S): 0%
+        (C + M % L): 6%
+src\mastermind\scoreboard.py
+    LOC: 143
+    LLOC: 58
+    SLOC: 46
+    Comments: 7
+    Single comments: 7
+    Multi: 56
+    Blank: 34
+    - Comment Stats
+        (C % L): 5%
+        (C % S): 15%
+        (C + M % L): 44%
+src\mastermind\__init__.py
+    LOC: 25
+    LLOC: 7
+    SLOC: 21
+    Comments: 1
+    Single comments: 1
+    Multi: 0
+    Blank: 3
+    - Comment Stats
+        (C % L): 4%
+        (C % S): 5%
+        (C + M % L): 4%
+src\mastermind\gui\app.py
+    LOC: 109
+    LLOC: 57
+    SLOC: 44
+    Comments: 4
+    Single comments: 10
+    Multi: 30
+    Blank: 25
+    - Comment Stats
+        (C % L): 4%
+        (C % S): 9%
+        (C + M % L): 31%
+src\mastermind\gui\utils.py
+    LOC: 163
+    LLOC: 41
+    SLOC: 44
+    Comments: 7
+    Single comments: 7
+    Multi: 71
+    Blank: 41
+    - Comment Stats
+        (C % L): 4%
+        (C % S): 16%
+        (C + M % L): 48%
+src\mastermind\gui\__init__.py
+    LOC: 4
+    LLOC: 2
+    SLOC: 1
+    Comments: 1
+    Single comments: 2
+    Multi: 0
+    Blank: 1
+    - Comment Stats
+        (C % L): 25%
+        (C % S): 100%
+        (C + M % L): 25%
+src\mastermind\gui\screens\gameboard.py
+    LOC: 325
+    LLOC: 124
+    SLOC: 230
+    Comments: 25
+    Single comments: 32
+    Multi: 15
+    Blank: 48
+    - Comment Stats
+        (C % L): 8%
+        (C % S): 11%
+        (C + M % L): 12%
+src\mastermind\gui\screens\gameover.py
+    LOC: 214
+    LLOC: 80
+    SLOC: 150
+    Comments: 11
+    Single comments: 16
+    Multi: 16
+    Blank: 32
+    - Comment Stats
+        (C % L): 5%
+        (C % S): 7%
+        (C + M % L): 13%
+src\mastermind\gui\screens\highscores.py
+    LOC: 118
+    LLOC: 57
+    SLOC: 70
+    Comments: 11
+    Single comments: 14
+    Multi: 13
+    Blank: 21
+    - Comment Stats
+        (C % L): 9%
+        (C % S): 16%
+        (C + M % L): 20%
+src\mastermind\gui\screens\secret.py
+    LOC: 185
+    LLOC: 75
+    SLOC: 125
+    Comments: 11
+    Single comments: 15
+    Multi: 19
+    Blank: 26
+    - Comment Stats
+        (C % L): 6%
+        (C % S): 9%
+        (C + M % L): 16%
+src\mastermind\gui\screens\start.py
+    LOC: 256
+    LLOC: 85
+    SLOC: 195
+    Comments: 15
+    Single comments: 18
+    Multi: 14
+    Blank: 29
+    - Comment Stats
+        (C % L): 6%
+        (C % S): 8%
+        (C + M % L): 11%
+src\mastermind\gui\screens\__init__.py
+    LOC: 1
+    LLOC: 1
+    SLOC: 0
+    Comments: 0
+    Single comments: 1
+    Multi: 0
+    Blank: 0
+    - Comment Stats
+        (C % L): 0%
+        (C % S): 0%
+        (C + M % L): 0%
+src\mastermind\gui\widgets\colorpicker.py
+    LOC: 83
+    LLOC: 31
+    SLOC: 38
+    Comments: 1
+    Single comments: 2
+    Multi: 26
+    Blank: 17
+    - Comment Stats
+        (C % L): 1%
+        (C % S): 3%
+        (C + M % L): 33%
+src\mastermind\gui\widgets\row.py
+    LOC: 110
+    LLOC: 45
+    SLOC: 59
+    Comments: 3
+    Single comments: 5
+    Multi: 25
+    Blank: 21
+    - Comment Stats
+        (C % L): 3%
+        (C % S): 5%
+        (C + M % L): 25%
+src\mastermind\gui\widgets\__init__.py
+    LOC: 1
+    LLOC: 1
+    SLOC: 0
+    Comments: 0
+    Single comments: 1
+    Multi: 0
+    Blank: 0
+    - Comment Stats
+        (C % L): 0%
+        (C % S): 0%
+        (C + M % L): 0%

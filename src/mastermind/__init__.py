@@ -10,7 +10,7 @@ from .scoreboard import (
     top_scores,
 )
 
-__all__ = [
+__all__ = (
     "Rules",
     "validate_guess",
     "score",
@@ -20,6 +20,6 @@ __all__ = [
     "save_score",
     "load_scores",
     "top_scores",
-]
+)
 
-__version__ = "0.2.0"  # Updated for Sprint 2
+__version__: str = "0.2.0"  # Updated for Sprint 2

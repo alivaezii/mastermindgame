@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Mastermind KPI Report</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; }
+    h1 { margin: 0 0 12px 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 10px; vertical-align: top; text-align: left; }
+    th { width: 220px; background: #f7f7f7; }
+    .links a { margin-right: 14px; }
+    code { background: #f2f2f2; padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Mastermind KPI Report</h1>
+  <p class="links">
+    <a href="../coverage_html/index.html">Coverage HTML</a>
+    <a href="pytest.txt">pytest output</a>
+    <a href="ruff.txt">ruff output</a>
+    <a href="mypy.txt">mypy output</a>
+    <a href="radon_cc.txt">radon cc output</a>
+    <a href="radon_raw.txt">radon raw output</a>
+    <a href="interrogate.txt">interrogate output</a>
+    <a href="kpi.json">kpi.json</a>
+  </p>
+  <table>
+    <tr><th>Tests</th><td><pre style='margin:0;white-space:pre-wrap'>68 passed in 0.31s</pre></td></tr>
+<tr><th>Coverage (core+cli)</th><td><pre style='margin:0;white-space:pre-wrap'>95%</pre></td></tr>
+<tr><th>Ruff</th><td><pre style='margin:0;white-space:pre-wrap'>PASS</pre></td></tr>
+<tr><th>Interrogate (docs)</th><td><pre style='margin:0;white-space:pre-wrap'>RESULT: PASSED (minimum: 80.0%, actual: 92.6%)</pre></td></tr>
+<tr><th>MyPy errors</th><td><pre style='margin:0;white-space:pre-wrap'>0</pre></td></tr>
+<tr><th>Radon worst CC</th><td><pre style='margin:0;white-space:pre-wrap'>16 | F 21:0 play - C (16)</pre></td></tr>
+<tr><th>Generated</th><td><pre style='margin:0;white-space:pre-wrap'>2025-12-12 15:14:30 </pre></td></tr>
+  </table>
+</body>
+</html>
