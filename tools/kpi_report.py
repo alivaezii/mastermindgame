@@ -1,12 +1,9 @@
 from __future__ import annotations
 
 import json
-import os
 import subprocess
-import sys
 from datetime import datetime
 from pathlib import Path
-
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "reports"
@@ -75,7 +72,6 @@ def parse_radon_cc_find_worst(text: str) -> tuple[str | None, str | None]:
         # example: "F 21:0 play - C (16)"
         if "(" in line and ")" in line:
             try:
-                grade = line.split(" - ")[-1].split()[0]  # C
                 score_str = line.split("(")[-1].split(")")[0]  # 16
                 score = int(score_str)
                 if worst is None or score > worst:
@@ -192,7 +188,7 @@ def main() -> int:
     write_text(HTML / "kpi.json", json.dumps(data, indent=2))
     write_text(HTML / "index.html", make_summary_html(data))
 
-    print(f"\nKPI report generated:")
+    print("\nKPI report generated:")
     print(f"- Summary: {HTML / 'index.html'}")
     print(f"- Coverage: {COV_HTML / 'index.html'}")
     return 0 if rc_p == 0 else 1
