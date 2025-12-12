@@ -12,7 +12,7 @@ authors = [{ name = "Team Mastermind" }]
 dependencies = []
 
 [project.optional-dependencies]
-dev = ["pytest", "pytest-cov", "flake8", "black", "isort", "pre-commit"]
+dev = ["pytest", "pytest-cov", "flake8", "black", "isort", "pre-commit", "mypy", "ruff", "radon", "interrogate"]
 
 [project.scripts]
 mastermind = "mastermind.cli:main"
@@ -20,10 +20,29 @@ mastermind = "mastermind.cli:main"
 [tool.pytest.ini_options]
 addopts = "-q --cov=mastermind --cov-report=term-missing"
 
+[tool.coverage.run]
+source = ["mastermind"]
+omit = [
+  "src/mastermind/gui/*",
+]
+
+[tool.coverage.report]
+omit = [
+  "src/mastermind/gui/*",
+]
+show_missing = true
+skip_covered = false
+
+[tool.mypy]
+python_version = "3.10"
+mypy_path = "src"
+packages = ["mastermind"]
+ignore_missing_imports = true
+exclude = "(^src/mastermind/gui/)"
+
 [tool.black]
 line-length = 130
 target-version = ["py310", "py311"]
 
 [tool.isort]
 profile = "black"
-
