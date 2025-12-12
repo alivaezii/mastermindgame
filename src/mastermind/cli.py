@@ -13,7 +13,7 @@ import random
 from getpass import getpass
 from typing import Optional
 
-from .engine import Rules
+from .engine import Rules, validate_guess
 from .game import Game
 from .scoreboard import ScoreEntry, calculate_score, save_score, top_scores
 
@@ -24,7 +24,7 @@ def play(
     allow_duplicates: bool,
     mode: str = "pvc",
     max_attempts: int = 10,
-    seed: Optional[int] = None
+    seed: Optional[int] = None,
 ) -> None:
     """
     Run an interactive game loop in the terminal.
@@ -54,15 +54,12 @@ def play(
         print("(It will not be displayed on screen)")
 
         while True:
-            secret = getpass(
-                f"Secret code ({length} characters from '{alphabet}'): "
-            ).strip()
+            secret = getpass(f"Secret code ({length} characters from '{alphabet}'): ").strip()
             try:
-                from .engine import validate_guess
                 validate_guess(secret, rules)
                 break
-            except ValueError as e:
-                print(f"Invalid secret: {e}")
+            except ValueError as exc:
+                print(f"Invalid secret: {exc}")
                 print("Please try again.\n")
 
         game = Game(rules=rules, mode="pvp", max_attempts=max_attempts, secret=secret)
@@ -76,14 +73,12 @@ def play(
     while not game.is_over():
         attempt_num = game.attempts_used + 1
 
-        guess = input(
-            f"Attempt {attempt_num}/{max_attempts} - Your guess: "
-        ).strip()
+        guess = input(f"Attempt {attempt_num}/{max_attempts} - Your guess: ").strip()
 
         try:
             result = game.make_guess(guesser_name, guess)
-        except ValueError as e:
-            print(f"Invalid guess: {e}\n")
+        except ValueError as exc:
+            print(f"Invalid guess: {exc}\n")
             continue
 
         bulls = result["bulls"]
@@ -101,15 +96,18 @@ def play(
                 print(f"The secret was: {result['secret']}")
             print()
             break
-        else:
-            print(f"Remaining attempts: {result['remaining_attempts']}\n")
+
+        print(f"Remaining attempts: {result['remaining_attempts']}\n")
+
+    # At this point, the game is finished; ensure `won` is treated as bool for typing.
+    won: bool = bool(game.won)
 
     # Calculate and save score
     score_value = calculate_score(
-        won=game.won,
+        won=won,
         attempts_used=game.attempts_used,
         max_attempts=max_attempts,
-        mode=mode
+        mode=mode,
     )
 
     print(f"Your score: {score_value}")
@@ -117,11 +115,11 @@ def play(
     entry = ScoreEntry(
         player_name=guesser_name,
         mode=mode,
-        won=game.won,
+        won=won,
         attempts_used=game.attempts_used,
         max_attempts=max_attempts,
         score=score_value,
-        timestamp=""
+        timestamp="",
     )
 
     save_score(entry)
@@ -132,11 +130,11 @@ def play(
     print("-" * 60)
     top = top_scores(limit=5)
     if top:
-        for i, e in enumerate(top, 1):
-            won_flag = "YES" if e.won else "NO"
+        for i, entry_item in enumerate(top, 1):
+            won_flag = "YES" if entry_item.won else "NO"
             print(
-                f"{i}. {e.player_name:15} | {won_flag} | Score: {e.score:3} | "
-                f"{e.mode.upper()} | {e.attempts_used}/{e.max_attempts} attempts"
+                f"{i}. {entry_item.player_name:15} | {won_flag} | Score: {entry_item.score:3} | "
+                f"{entry_item.mode.upper()} | {entry_item.attempts_used}/{entry_item.max_attempts} attempts"
             )
     else:
         print("No scores yet. You're the first!")
@@ -146,12 +144,14 @@ def play(
 def main() -> None:
     parser = argparse.ArgumentParser(
         prog="mastermind",
-        description="Play Mastermind in your terminal."
+        description="Play Mastermind in your terminal.",
     )
     parser.add_argument("--length", type=int, default=4)
     parser.add_argument("--alphabet", type=str, default="012345")
-    parser.add_argument("--allow-duplicates", action="store_true", default=True)
+    parser.add_argument("--allow-duplicates", action="store_true")
     parser.add_argument("--no-duplicates", dest="allow_duplicates", action="store_false")
+    parser.set_defaults(allow_duplicates=True)
+
     parser.add_argument("--mode", type=str, choices=["pvc", "pvp"], default="pvc")
     parser.add_argument("--max-attempts", type=int, default=10)
     parser.add_argument("--seed", type=int, default=None)
@@ -168,7 +168,7 @@ def main() -> None:
             args.allow_duplicates,
             args.mode,
             args.max_attempts,
-            args.seed
+            args.seed,
         )
     else:
         parser.print_help()
