@@ -11,6 +11,7 @@ A complete implementation of the classic **Mastermind** logic game with both **c
 [Mastermind Wikipedia (Game)](https://de.wikipedia.org/wiki/Mastermind_(Spiel))
 
 ---
+
 ## 🛠 Tech Stack & Tools
 
 <p align="left">
@@ -386,6 +387,7 @@ This project includes full Agile documentation, test specifications, retrospecti
 - [Quality Assurance & CI/CD Policy](./docs/Quality_Testing_CICD_Policy.md)
 - [Code Quality KPI](./reports)
 - [Python ↔ Java Toolchain Comparison](./docs/Python_vs_Java_Tooling.md)
+
 
 
 
